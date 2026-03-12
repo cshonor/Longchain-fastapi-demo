@@ -6,8 +6,10 @@
 
 ```
 longchain/
-├── longchain/     # LangChain 相关逻辑（链、提示、模型等）
-├── fastapi/       # FastAPI 路由、接口与中间件
+├── longchain/       # LangChain 相关逻辑（链、提示、模型等）
+├── fastapi/         # FastAPI 路由、接口与中间件
+├── environment.yml  # Conda 环境配置
+├── requirements.txt # pip 依赖
 └── README.md
 ```
 
@@ -18,10 +20,10 @@ longchain/
 
 ## 环境要求
 
-- Python 3.8+
-- pip
+- Python 3.10+（LangChain 1.2 要求）
+- Anaconda 或 Miniconda
 
-## 快速开始
+## 快速开始（Anaconda）
 
 ### 1. 克隆项目
 
@@ -30,24 +32,37 @@ git clone https://github.com/cshonor/Longchain-fastapi.git
 cd Longchain-fastapi
 ```
 
-### 2. 创建虚拟环境
+### 2. 创建 Conda 环境
 
 ```bash
-python -m venv venv
-venv\Scripts\activate  # Windows
-# source venv/bin/activate  # Linux/Mac
+conda env create -f environment.yml
 ```
 
-### 3. 安装依赖
+### 3. 激活环境
 
 ```bash
-pip install -r requirements.txt
+conda activate longchain-fastapi
 ```
 
 ### 4. 运行服务
 
 ```bash
 uvicorn main:app --reload
+```
+
+### 更新环境
+
+```bash
+conda env update -f environment.yml
+```
+
+## 其他方式（pip + venv）
+
+```bash
+python -m venv venv
+venv\Scripts\activate          # Windows
+# source venv/bin/activate     # Linux/Mac
+pip install -r requirements.txt
 ```
 
 ## 配置
