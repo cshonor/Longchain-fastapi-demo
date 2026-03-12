@@ -67,7 +67,14 @@ pip install -r requirements.txt
 
 ## 配置
 
-在项目根目录创建 `.env` 文件，配置必要的环境变量（如 API Keys）。
+复制 `env.example` 为 `.env`，填写所需 API Key：
+
+```bash
+copy env.example .env   # Windows
+# cp env.example .env   # Linux/Mac
+```
+
+支持的 LLM 服务：Deepseek、OpenAI、Anthropic、Hunyuan、Dashscope、ZhipuAI。
 
 ## License
 
