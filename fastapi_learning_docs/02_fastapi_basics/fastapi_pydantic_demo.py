@@ -40,6 +40,12 @@ def read_root():
 # 路径参数 + 查询参数（会自动做类型校验）
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: str | None = None):
+    """
+    读取指定ID的商品信息
+    :param item_id: 路径参数，必须是整数
+    :param q: 可选的查询参数（字符串），默认为None
+    :return: JSON格式的字典
+    """
     return {"item_id": item_id, "q": q}
 
 
