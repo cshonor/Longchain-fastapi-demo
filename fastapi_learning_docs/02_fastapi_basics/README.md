@@ -7,17 +7,19 @@
 
 ## 这部分学完你会得到什么（为什么 FastAPI “快”）
 
-FastAPI 的“快”通常来自两点：
+1. **FastAPI 快**
+   性能常被拿来与 Go、Node.js 做对标；底层主要靠两个核心：
+   - **Starlette**：负责异步 HTTP、WebSocket（ASGI 基座）
+   - **Pydantic**：负责参数校验、数据格式与 Schema（JSON Schema）
 
-- **Starlette**：负责 ASGI 异步 HTTP / WebSocket 等底层能力
-- **Pydantic**：负责参数校验、数据序列化、类型提示与 JSON Schema
+2. **简单好上手**
+   - 写法直观，编辑器自动补全友好
+   - 自带 Swagger 接口文档（`/docs`），接口写完自动生成
+   - 开发速度快，输入输出更稳定，bug 更少
 
-它带来的直接收益：
-
-- **上手快**：写法直观、编辑器补全友好
-- **开发快**：自带 Swagger（`/docs`）与 OpenAPI，接口写完自动生成文档
-- **更规范**：遵循 OpenAPI（Swagger）与 JSON Schema，适合企业级项目落地
-- **更稳定**：请求/响应模型统一，减少输入输出不一致导致的 bug
+3. **稳定、规范**
+   - 可用于企业级项目
+   - 遵循标准：OpenAPI（Swagger）、JSON Schema
 
 ---
 
@@ -33,4 +35,5 @@ FastAPI 的“快”通常来自两点：
 
 （在此目录下按章节添加笔记或示例文件名，如 `03_pydantic.md`。）
 
+- [FastAPI 安装 + 入门 Hello World](./fastapi_install_hello_world.md)
 - [FastAPI 异步代码、并发和并行](./fastapi_async_code_concurrency_parallel.md)
