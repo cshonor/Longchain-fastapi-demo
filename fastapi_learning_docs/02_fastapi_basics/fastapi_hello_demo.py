@@ -21,12 +21,11 @@ def read_item(item_id: int, q: str | None = None):
 async def read_async():
     return {"mode": "async", "ok": True}
 
-#uvicorn demo:app --reload
-# uvicorn demo_main:app --reload
+# 运行：
+#   uvicorn fastapi_learning_docs.02_fastapi_basics.fastapi_hello_demo:app --reload
+#
 # 访问：
-# http://127.0.0.1:8000/
-# http://127.0.0.1:8000/items/5?q=test
-# http://127.0.0.1:8000/async
-
-#一句话核心原因：FastAPI 本身只是 “写接口的框架”，它不负责 “启动服务器、监听端口、接收 HTTP 请求”。Uvicorn 才是真正干活的服务器。
-#1. 类比一下你立刻懂FastAPI = 你写的业务代码（接口、逻辑、参数校验）Uvicorn = 服务器（监听端口、接收请求、转发给 FastAPI）就像：SpringBoot 程序 = 代码Tomcat = 服务器
+#   http://127.0.0.1:8000/
+#   http://127.0.0.1:8000/items/5?q=test
+#   http://127.0.0.1:8000/async
+#   http://127.0.0.1:8000/docs

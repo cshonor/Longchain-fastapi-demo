@@ -36,4 +36,6 @@
 （在此目录下按章节添加笔记或示例文件名，如 `03_pydantic.md`。）
 
 - [FastAPI 安装 + 入门 Hello World](./fastapi_install_hello_world.md)
+- [FastAPI + Pydantic 最小 Demo（可直接跑）](./fastapi_pydantic_demo.py)
+- [Pydantic 自动类型校验（FastAPI 稳的关键）](./pydantic_study.md)
 - [FastAPI 异步代码、并发和并行](./fastapi_async_code_concurrency_parallel.md)
