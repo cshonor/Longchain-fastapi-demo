@@ -52,3 +52,5 @@
 - [Query(...) 附加信息 Demo（可直接跑）](./fastapi_query_extra_demo.py)
 - [路径参数与查询参数混用、Path、同名](./10_path_and_query_mix.md)
 - [路径 + Query 混用 Demo（可直接跑）](./fastapi_path_query_mix_demo.py)
+- [Path 路径参数与校验（Path / 顺序 / gt·ge·lt·le）](./11_path_params_path_core.md)
+- [Path(...) 核心 Demo（可直接跑）](./fastapi_path_params_core_demo.py)
