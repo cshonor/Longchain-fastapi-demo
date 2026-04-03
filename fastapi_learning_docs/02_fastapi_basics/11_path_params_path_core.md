@@ -27,16 +27,34 @@ async def read_items(item_id: int = Path(..., title="物品 ID")):
 
 Python 规则：**没有默认值的形参**一般要写在**有默认值**的形参前面，否则会语法错误。
 
-路由里常见组合是：**路径参数常带 `Path(...)`（算“有默认值”）**，后面还要接**必填的 Query** 时，容易纠结顺序。可以用 **`*` 分隔符**：`*` 之后的参数全部是**仅限关键字**，便于把「路径 + 查询」写清楚。
+在 FastAPI 里：
+
+Path(...)：即使写 Path(...)（省略默认值），Python 仍视为 “有默认值”（因为 Path 是函数调用）。
+
+必填 Query：不写默认值（如 q: str），属于 “无默认值、必填”。
+直接写会报 Python 语法错：
+
+```python
+# ❌ 错误：有默认值的 Path 放在了必填 Query 前面
+@app.get("/items/{item_id}")
+def read_item(item_id: int = Path(...), q: str):  # SyntaxError
+    ...
+
+```    
+
+路由里常见组合是：**路径参数常带 `Path(...)`（算“有默认值”）**，后面还要接**必填的 Query** 时，容易纠结顺序。
+
+可以用 **`*` 分隔符**：`*` 之后的参数全部是**仅限关键字**，便于把「路径 + 查询」写清楚。在函数参数里加一个单独的 *，* 之后所有参数强制变成「关键字参数」，Python 不再检查顺序。
 
 ```python
 @app.get("/items/{item_id}")
 async def read_items(
-    *,
-    item_id: int = Path(...),
-    q: str,
+     *,  # 👈 关键分隔符
+    item_id: int = Path(..., title="商品ID", ge=1),  # 路径参数（必填）
+    q: str,  # 查询参数（必填，无默认值）
+    limit: int = Query(10, le=100)  # 查询参数（可选）
 ):
-    return {"item_id": item_id, "q": q}
+    return {"item_id": item_id, "q": q, "limit": limit}
 ```
 
 这里 `q: str` 表示**必填的查询参数**（未出现在路径 `{...}` 中 → Query）。
@@ -73,3 +91,8 @@ size: float = Query(..., gt=0, lt=10.5)
 ## 一句话
 
 **路径里用 `Path`，`?` 后面用 `Query`；要写复杂组合时用 `*` 把关键字参数理顺，数字范围用 `gt/ge/lt/le`。**
+
+只要出现：Path(...) + 必填 Query
+一律用 * 分隔，写成：
+
+def 函数(*, path参数=Path(...), 必选Query, 可选Query=...)
