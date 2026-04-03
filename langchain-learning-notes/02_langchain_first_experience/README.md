@@ -4,3 +4,8 @@
 - 调用大模型基础示例
 - 第一个简单程序运行
 - 理解基本调用流程
+
+## 本章笔记
+
+- [环境搭建 & 核心概念（LCEL + 模型 / Prompt / 解析器）](./01_env_and_core_concepts.md)
+- [基础链三要素 & 五大模块关系](./02_basic_chain_and_modules.md)
