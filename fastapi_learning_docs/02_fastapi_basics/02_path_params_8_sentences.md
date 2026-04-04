@@ -77,6 +77,8 @@ async def get_model(model_name: ModelName):
 
 ## 5. 路径里想传文件路径？用 `:path`
 
+在路径参数后加 :path，告诉 Starlette（FastAPI 底层）：这个参数可以包含斜杠 /，直到 URL 结束FastAPI。
+
 ```python
 @app.get("/files/{file_path:path}")
 def read_file(file_path: str):
@@ -84,7 +86,17 @@ def read_file(file_path: str):
 ```
 
 可以接收 `/a/b/c.txt` 这种带斜杠的路径。
+```python
+from fastapi import FastAPI
 
+app = FastAPI()
+
+# 关键：{file_path:path}
+@app.get("/files/{file_path:path}")
+def read_file(file_path: str):
+    return {"file_path": file_path}
+
+```    
 ---
 
 ## 6. 接口可以加标签、说明、弃用标记
