@@ -1,86 +1,78 @@
 # Longchain-FastAPI
 
-基于 LangChain 与 FastAPI 的 LLM 应用 API 项目。
+基于 **LangChain** 与 **FastAPI** 的 LLM 应用 API 与学习笔记仓库。
 
 ## 项目结构
 
 ```
 longchain/
-├── longchain/       # LangChain 相关逻辑（链、提示、模型等）
-├── fastapi_app/     # FastAPI 可运行应用（勿使用顶层目录名 `fastapi/`）
-├── fastapi_learning_docs/  # FastAPI 系统化学习文档（见 fastapi_learning_docs/README.md）
-├── rag/             # RAG 检索增强生成相关
-├── graphrag/        # GraphRAG：图结构增强的检索与生成
-├── scs/             # SCS 相关逻辑
-├── longgraph/       # LongGraph 图相关
-├── mcp/             # MCP 相关
-├── environment.yml  # Conda 环境配置
-├── requirements.txt # pip 依赖
+├── fastapi_app/            # FastAPI 可运行应用（入口见 fastapi_app/main.py）
+├── fastapi_learning_docs/  # FastAPI 系统化学习文档（含 01～08 章，见该目录 README）
+├── longchain/              # LangChain 相关工具与 env 示例（含 env.example）
+├── langchain-learning-notes/  # LangChain 学习笔记（可选）
+├── demo.py                 # 本地实验脚本
+├── environment.yml         # Conda 环境
+├── requirements.txt        # pip 依赖
 └── README.md
 ```
 
 ## 技术栈
 
-- **LangChain** - 大语言模型应用开发框架
-- **FastAPI** - 高性能 Python Web 框架
+- **LangChain** — LLM 应用编排
+- **FastAPI** — Web API（异步、OpenAPI）
 
 ## 环境要求
 
-- Python 3.10+（LangChain 1.2 要求）
-- Anaconda 或 Miniconda
+- **Python 3.10+**（与 LangChain / 当前依赖一致即可）
+- 推荐使用 **Anaconda**，亦可用 **venv + pip**
 
-## 快速开始（Anaconda）
-
-### 1. 克隆项目
+## 快速开始（Conda）
 
 ```bash
 git clone https://github.com/cshonor/Longchain-fastapi.git
 cd Longchain-fastapi
-```
-
-### 2. 创建 Conda 环境
-
-```bash
 conda env create -f environment.yml
-```
-
-### 3. 激活环境
-
-```bash
 conda activate longchain-fastapi
 ```
 
-### 4. 运行服务
+### 运行 API
 
 ```bash
 uvicorn fastapi_app.main:app --reload
 ```
 
-### 更新环境
+默认接口前缀：`/api/v1`；文档：`http://127.0.0.1:8000/docs`。
+
+### 更新 Conda 环境
 
 ```bash
 conda env update -f environment.yml
 ```
 
-## 其他方式（pip + venv）
+## 使用 pip + venv
 
 ```bash
 python -m venv venv
 venv\Scripts\activate          # Windows
-# source venv/bin/activate     # Linux/Mac
+# source venv/bin/activate     # Linux / macOS
 pip install -r requirements.txt
+uvicorn fastapi_app.main:app --reload
 ```
 
 ## 配置
 
-复制 `env.example` 为 `.env`，填写所需 API Key：
+在项目**根目录**创建 `.env`。可复制模板：
 
 ```bash
-copy env.example .env   # Windows
-# cp env.example .env   # Linux/Mac
+copy longchain\env.example .env   # Windows
+# cp longchain/env.example .env   # Linux / macOS
 ```
 
-支持的 LLM 服务：Deepseek、OpenAI、Anthropic、Hunyuan、Dashscope、ZhipuAI。
+按需填写各 LLM / 服务 API Key；应用通过 `pydantic-settings` 读取根目录 `.env`（见 `fastapi_app/core/config.py`）。
+
+## 学习文档
+
+系统化的 FastAPI 笔记与可运行小 demo 在 **`fastapi_learning_docs/`**，总索引：[fastapi_learning_docs/README.md](fastapi_learning_docs/README.md)（协程 → 基础 → 中间件 → 依赖注入 → 安全 → 数据库 → 进阶 → **测试**）。
 
 ## License
 
