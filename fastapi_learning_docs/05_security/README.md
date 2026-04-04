@@ -4,3 +4,9 @@
 **核心目标**：保护接口，避免未授权访问。
 
 对照代码：`fastapi_app/core/security.py`、`core/config.py` 中的密钥与过期配置。
+
+---
+
+## 本章笔记
+
+- [安全机制简介（OAuth2、OIDC 与 OpenAPI 安全方案）](./01_security_introduction.md)
