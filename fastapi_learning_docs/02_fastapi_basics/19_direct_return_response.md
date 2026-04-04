@@ -83,3 +83,5 @@ def get_legacy_data():
 ## 可运行示例
 
 见 [`fastapi_direct_response_demo.py`](./fastapi_direct_response_demo.py)。
+
+进一步单独看编码规则与练习：[`jsonable_encoder`](./23_jsonable_encoder.md)。

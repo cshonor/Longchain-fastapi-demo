@@ -72,6 +72,8 @@
 - [response_model Demo（可直接跑）](./fastapi_response_model_demo.py)
 - [直接返回 Response / JSONResponse（jsonable_encoder、XML 等）](./19_direct_return_response.md)
 - [直接 Response Demo（可直接跑）](./fastapi_direct_response_demo.py)
+- [`jsonable_encoder`（JSON 兼容编码）](./23_jsonable_encoder.md)
+- [jsonable_encoder Demo（可直接跑）](./fastapi_jsonable_encoder_demo.py)
 - [定制化 Response（response_class / HTML / Stream / File 等）](./20_response_classes.md)
 - [Response 类型 Demo（可直接跑）](./fastapi_response_classes_demo.py)
 - [OpenAPI `responses` 参数（多状态码 / 多媒体类型）](./21_openapi_responses_parameter.md)
