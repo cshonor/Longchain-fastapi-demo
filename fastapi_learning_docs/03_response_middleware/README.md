@@ -13,5 +13,7 @@
 - [中间件 Demo（可直接跑）](./fastapi_middleware_demo.py)
 - [内置中间件（HTTPS / TrustedHost / GZip）](./02_advanced_builtin_middleware.md)
 - [内置中间件 Demo（可直接跑）](./fastapi_builtin_middleware_demo.py)
+- [CORS 跨域（CORSMiddleware）](./03_cors_middleware.md)
+- [CORS Demo（可直接跑）](./fastapi_cors_demo.py)
 
 响应与 OpenAPI 的细项笔记主要在 **`../02_fastapi_basics/`**（第 16～21 章）。
