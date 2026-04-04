@@ -96,7 +96,11 @@ app = FastAPI()
 def read_file(file_path: str):
     return {"file_path": file_path}
 
-```    
+```
+
+对比（不加 :path）：
+路径：@app.get("/files/{file_path}")
+访问 /files/a/b/c.txt → 404 Not Found（因为 /a/b/c.txt 被当成多级路径，找不到路由）
 ---
 
 ## 6. 接口可以加标签、说明、弃用标记
