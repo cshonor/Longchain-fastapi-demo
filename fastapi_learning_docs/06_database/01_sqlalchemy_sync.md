@@ -196,3 +196,5 @@ def read_me(current_user: DBUser = Depends(get_current_user)):
 默认 **SQLite** 文件，便于零配置运行；把 **`SQLALCHEMY_DATABASE_URL`** 换成 **`mysql+pymysql://...`** 即可切 MySQL：
 
 [`fastapi_db_sync_sqlalchemy_demo.py`](./fastapi_db_sync_sqlalchemy_demo.py)
+
+下一篇：[异步访问关系库](./02_sqlalchemy_async.md)。

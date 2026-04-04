@@ -10,4 +10,6 @@
 ## 本章笔记
 
 - [SQLAlchemy 同步引擎（Session、模型与 JWT 骨架）](./01_sqlalchemy_sync.md)
+- [异步访问关系库（databases / SQLAlchemy asyncio）](./02_sqlalchemy_async.md)
 - [同步数据库 Demo（SQLite，可换 MySQL）](./fastapi_db_sync_sqlalchemy_demo.py)
+- [异步 SQLAlchemy Demo（aiosqlite + JWT）](./fastapi_db_async_sqlalchemy_demo.py)
