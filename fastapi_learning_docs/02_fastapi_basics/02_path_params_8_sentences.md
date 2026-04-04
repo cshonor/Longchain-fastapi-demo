@@ -13,7 +13,18 @@ URL 里用 `{}` 包起来的变量，比如 `/items/{item_id}`。
 底层还是 **Pydantic** 在干活。
 
 ---
+```python
+from fastapi import FastAPI
 
+app = FastAPI()
+
+# 加了类型 : int
+@app.get("/items/{item_id}")
+async def read_item(item_id: int):
+    return {"item_id": item_id}
+
+```
+    
 ## 3. 路径顺序非常重要
 
 ```python
