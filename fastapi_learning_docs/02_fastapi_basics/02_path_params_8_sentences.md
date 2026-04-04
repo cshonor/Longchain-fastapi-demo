@@ -48,7 +48,31 @@ class ModelName(str, Enum):
 ```
 
 这样路径只能传这几个值，传别的直接报错；文档里还会自动下拉选择。
+```python
+from enum import Enum
+from fastapi import FastAPI
 
+app = FastAPI()
+
+# 1. 定义枚举：继承 str + Enum（关键！）
+class ModelName(str, Enum):
+    resnet = "resnet"
+    alexnet = "alexnet"
+
+# 2. 路径参数用枚举类型标注
+@app.get("/models/{model_name}")
+async def get_model(model_name: ModelName):
+    # 3. 直接用枚举成员判断
+    if model_name is ModelName.resnet:
+        return {"model": model_name, "msg": "ResNet 深度学习模型"}
+    
+    # 或用 .value 获取字符串
+    if model_name.value == "alexnet":
+        return {"model": model_name, "msg": "AlexNet 经典模型"}
+
+    return {"model": model_name}
+
+ ```   
 ---
 
 ## 5. 路径里想传文件路径？用 `:path`
