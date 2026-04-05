@@ -14,3 +14,5 @@
 - [LLM vs ChatModel 对比 Demo（Tongyi + ChatDeepSeek）](./demo_llm_chatmodel_compare.py)
 - [PromptTemplate / ChatPromptTemplate + LCEL Demo](./demo_prompt_template.py)
 - [PromptTemplate / ChatPromptTemplate 与 LCEL](./05_prompt_template.md)
+- [输出解析器 Output Parser（自定义、`prompt | llm | parser`）](./06_output_parser.md)
+- [Output Parser + LCEL Demo](./demo_output_parser.py)
